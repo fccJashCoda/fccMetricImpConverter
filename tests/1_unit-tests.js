@@ -40,7 +40,7 @@ suite('Unit Tests', function () {
 
     test('Invalid Input (double fraction)', function (done) {
       let input = '1/4/1/4km';
-      assert.equal(convertHandler(input), 'invalid number');
+      assert.isNaN(convertHandler.getNum(input), NaN);
       done();
     });
 
@@ -68,7 +68,7 @@ suite('Unit Tests', function () {
         'KG',
       ];
       input.forEach(function (ele) {
-        assert.equal(convertHandler.getUnit(ele), ele);
+        assert.equal(convertHandler.getUnit(ele), ele.toLowerCase());
       });
       done();
     });
@@ -166,7 +166,7 @@ suite('Unit Tests', function () {
     });
 
     test('Kg to Lbs', function (done) {
-      let input = [5, 'km'];
+      let input = [5, 'kg'];
       let expected = 11.02312;
       assert.approximately(
         convertHandler.convert(input[0], input[1]),

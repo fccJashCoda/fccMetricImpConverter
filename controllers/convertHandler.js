@@ -19,13 +19,16 @@ function ConvertHandler() {
     }
 
     if (numRegex.test(raw)) {
+      if (raw.indexOf('/') === -1) {
+        return +raw;
+      }
       const [nominator, denominator] = raw.split('/');
       if (denominator === '0') {
-        return false;
+        return NaN;
       }
       return nominator / denominator;
     } else {
-      return false;
+      return NaN;
     }
   };
 
