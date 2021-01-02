@@ -45,7 +45,7 @@ function ConvertHandler() {
       unit = raw.match(unitRegex);
     }
 
-    result = unit ? unit[0] : false;
+    result = unit ? unit[0].toLowerCase() : false;
     if (result === 'l') {
       result = 'L';
     }

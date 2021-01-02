@@ -68,10 +68,10 @@ suite('Unit Tests', function () {
         'KG',
       ];
       input.forEach(function (ele) {
-        if (ele === 'l') {
+        if (ele === 'l' || ele === 'L') {
           assert.equal(convertHandler.getUnit(ele), 'L');
         } else {
-          assert.equal(convertHandler.getUnit(ele), ele);
+          assert.equal(convertHandler.getUnit(ele), ele.toLowerCase());
         }
       });
       done();
