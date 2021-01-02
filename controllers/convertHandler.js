@@ -36,14 +36,15 @@ function ConvertHandler() {
     let result;
     let unit;
 
-    let raw = input.toLowerCase();
+    let raw = input;
 
     let textRegex = /[a-zA-Z]+$/;
-    let unitRegex = /(gal|l|mi|km|lbs|kg)$/;
+    let unitRegex = /(gal|l|mi|km|lbs|kg|GAL|L|MI|KM|LBS|KG)$/;
 
     if (textRegex.test(raw)) {
       unit = raw.match(unitRegex);
     }
+
     result = unit ? unit[0] : false;
 
     return result;
@@ -54,12 +55,13 @@ function ConvertHandler() {
     let conversion = ['L', 'gal', 'km', 'mi', 'kg', 'lbs'];
 
     if (!initUnit) return null;
+    initUnit = initUnit.toLowerCase();
 
     return conversion[lookup.indexOf(initUnit)];
   };
 
   this.spellOutUnit = function (unit) {
-    let lookup = ['gal', 'l', 'mi', 'km', 'lbs', 'kg'];
+    let lookup = ['gal', 'L', 'mi', 'km', 'lbs', 'kg'];
     let spelling = [
       'gallons',
       'liters',
@@ -81,7 +83,7 @@ function ConvertHandler() {
     switch (initUnit) {
       case 'gal':
         return +(initNum * galToL).toFixed(5);
-      case 'l':
+      case 'L':
         return +(initNum / galToL).toFixed(5);
       case 'mi':
         return +(initNum * miToKm).toFixed(5);

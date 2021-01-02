@@ -68,7 +68,7 @@ suite('Unit Tests', function () {
         'KG',
       ];
       input.forEach(function (ele) {
-        assert.equal(convertHandler.getUnit(ele), ele.toLowerCase());
+        assert.equal(convertHandler.getUnit(ele), ele);
       });
       done();
     });
@@ -76,7 +76,6 @@ suite('Unit Tests', function () {
     test('Unknown Unit Input', function (done) {
       let input = '1.4gnome';
       assert.isFalse(convertHandler.getUnit(input));
-      // assert.equal(convertHandler.getUnit(input), 'invalid unit');
       done();
     });
   });
@@ -94,7 +93,7 @@ suite('Unit Tests', function () {
 
   suite('Function convertHandler.spellOutUnit(unit)', function () {
     test('For Each Valid Unit Inputs', function (done) {
-      let input = ['gal', 'l', 'mi', 'km', 'lbs', 'kg'];
+      let input = ['gal', 'L', 'mi', 'km', 'lbs', 'kg'];
       let expect = [
         'gallons',
         'liters',
@@ -123,7 +122,7 @@ suite('Unit Tests', function () {
     });
 
     test('L to Gal', function (done) {
-      let input = [5, 'l'];
+      let input = [5, 'L'];
       let expected = 1.32086;
       assert.approximately(
         convertHandler.convert(input[0], input[1]),
