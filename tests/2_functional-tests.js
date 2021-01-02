@@ -39,9 +39,6 @@ suite('Functional Tests', function () {
           .end(function (err, res) {
             assert.equal(res.status, 200);
             assert.equal(res.body, 'invalid unit');
-            console.log(res);
-            // assert.equal(res.body.initNum, 32);
-            // assert.equal(res.body.initUnit, false);
             done();
           });
       });

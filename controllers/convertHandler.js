@@ -45,7 +45,6 @@ function ConvertHandler() {
       unit = raw.match(unitRegex);
     }
     result = unit ? unit[0] : false;
-    // result = unit ? unit[0] : 'invalid unit';
 
     return result;
   };
