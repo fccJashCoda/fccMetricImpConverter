@@ -46,6 +46,9 @@ function ConvertHandler() {
     }
 
     result = unit ? unit[0] : false;
+    if (result === 'l') {
+      result = 'L';
+    }
 
     return result;
   };
