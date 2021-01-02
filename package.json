@@ -5,7 +5,8 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js",
-		"test": "mocha -u tdd tests/1_unit-tests"
+		"test": "mocha -u tdd tests/1_unit-tests",
+		"test2": "mocha -u tdd tests/2_functional-tests"
 	},
 	"dependencies": {
 		"body-parser": "^1.19.0",

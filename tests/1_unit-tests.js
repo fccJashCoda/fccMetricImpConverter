@@ -75,7 +75,8 @@ suite('Unit Tests', function () {
 
     test('Unknown Unit Input', function (done) {
       let input = '1.4gnome';
-      assert.equal(convertHandler.getUnit(input), 'invalid unit');
+      assert.isFalse(convertHandler.getUnit(input));
+      // assert.equal(convertHandler.getUnit(input), 'invalid unit');
       done();
     });
   });

@@ -44,7 +44,8 @@ function ConvertHandler() {
     if (textRegex.test(raw)) {
       unit = raw.match(unitRegex);
     }
-    result = unit ? unit[0] : 'invalid unit';
+    result = unit ? unit[0] : false;
+    // result = unit ? unit[0] : 'invalid unit';
 
     return result;
   };
@@ -52,6 +53,8 @@ function ConvertHandler() {
   this.getReturnUnit = function (initUnit) {
     let lookup = ['gal', 'l', 'mi', 'km', 'lbs', 'kg'];
     let conversion = ['L', 'gal', 'km', 'mi', 'kg', 'lbs'];
+
+    if (!initUnit) return null;
 
     return conversion[lookup.indexOf(initUnit)];
   };
@@ -93,9 +96,13 @@ function ConvertHandler() {
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    let result;
+    if (!initNum || !initUnit) {
+      return false;
+    }
 
-    return result;
+    return `${initNum} ${this.spellOutUnit(
+      initUnit
+    )} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`;
   };
 }
 
